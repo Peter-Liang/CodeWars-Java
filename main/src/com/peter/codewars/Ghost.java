@@ -1,3 +1,5 @@
+package com.peter.codewars;
+
 import java.util.Random;
 
 /**

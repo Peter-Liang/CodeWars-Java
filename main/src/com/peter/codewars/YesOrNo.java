@@ -1,3 +1,5 @@
+package com.peter.codewars;
+
 /**
  * Created by peter on 3/20/15.
  * Solution of Convert boolean values to strings 'Yes' or 'No'.
