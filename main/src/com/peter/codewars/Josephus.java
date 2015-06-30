@@ -7,7 +7,6 @@ package com.peter.codewars;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
 
 public class Josephus {
     public static <I> List<I> josephusPermutation(final List<I> items, final int k) {
