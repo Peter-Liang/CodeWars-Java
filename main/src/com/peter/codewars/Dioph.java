@@ -1,9 +1,7 @@
 package com.peter.codewars;
 
 import java.util.Arrays;
-import java.util.Hashtable;
 import java.util.LinkedList;
-import java.util.stream.LongStream;
 
 /**
  * Diophantine Equation
@@ -12,16 +10,12 @@ import java.util.stream.LongStream;
  */
 public class Dioph {
     public static String solEquaStr(long n) {
-        long maxY = (n - 1) / 4;
-        long minX = (long) Math.ceil(Math.sqrt(n));
-        long maxX = 2 * maxY + 1;
-        Hashtable<Long, Long> powers = new Hashtable<>();
-        LongStream.rangeClosed(minX, maxX).forEach(i -> powers.put(i * i, i));
         LinkedList<String> result = new LinkedList<>();
-        for (long i = 0; i <= maxY; i++) {
+        for (long i = 0; i <= (n - 1) / 4; i++) {
             long expected = n + 4 * i * i;
-            if (powers.containsKey(expected)) {
-                result.addFirst(Arrays.toString(new long[]{powers.get(expected), i}));
+            long x = (long) Math.sqrt(expected);
+            if (x * x == expected) {
+                result.addFirst(Arrays.toString(new long[]{x, i}));
             }
         }
         return Arrays.toString(result.toArray());
