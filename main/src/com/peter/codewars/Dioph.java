@@ -11,13 +11,23 @@ import java.util.LinkedList;
 public class Dioph {
     public static String solEquaStr(long n) {
         LinkedList<String> result = new LinkedList<>();
-        for (long i = 0; i <= (n - 1) / 4; i++) {
-            long expected = n + 4 * i * i;
-            long x = (long) Math.sqrt(expected);
-            if (x * x == expected) {
-                result.addFirst(Arrays.toString(new long[]{x, i}));
+        long maxY = (n - 1) / 4;
+        long y = 0;
+        long x = (long)Math.sqrt(n);
+        while (y <= maxY) {
+            long sum = (x - 2 * y) * (x + 2 * y);
+            if (sum < n) {
+                x++;
+            }
+            else if (sum > n) {
+                y++;
+            } else {
+                result.addFirst(Arrays.toString(new long[]{x, y}));
+                y++;
             }
         }
+
+
         return Arrays.toString(result.toArray());
     }
 }
