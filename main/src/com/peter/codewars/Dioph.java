@@ -13,21 +13,20 @@ public class Dioph {
         LinkedList<String> result = new LinkedList<>();
         long maxY = (n - 1) / 4;
         long y = 0;
-        long x = (long)Math.sqrt(n);
+        long x = (long) Math.sqrt(n);
         while (y <= maxY) {
-            long sum = (x - 2 * y) * (x + 2 * y);
+            long sum = x * x - ((y * y) << 2);
             if (sum < n) {
-                x++;
-            }
-            else if (sum > n) {
-                y++;
-            } else {
+                long i = x;
+                x = ++i;
+                continue;
+            } else if (sum == n) {
                 result.addFirst(Arrays.toString(new long[]{x, y}));
-                y++;
             }
+            long i = y;
+            y = ++i;
         }
-
-
         return Arrays.toString(result.toArray());
     }
+
 }
