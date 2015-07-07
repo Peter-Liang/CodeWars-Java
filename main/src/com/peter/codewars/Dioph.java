@@ -17,16 +17,13 @@ public class Dioph {
         while (y <= maxY) {
             long sum = x * x - ((y * y) << 2);
             if (sum < n) {
-                long i = x;
-                x = ++i;
+                ++x;
                 continue;
             } else if (sum == n) {
                 result.addFirst(Arrays.toString(new long[]{x, y}));
             }
-            long i = y;
-            y = ++i;
+            ++y;
         }
-        return Arrays.toString(result.toArray());
+        return result.toString();
     }
-
 }
