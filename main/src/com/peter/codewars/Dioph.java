@@ -14,10 +14,13 @@ public class Dioph {
         long maxY = (n - 1) / 4;
         long y = 0;
         long x = (long) Math.sqrt(n);
+        if ((n % 2 == 0 && x % 2 != 0) || (n % 2 == 1 && x % 2 == 0)) {
+            ++x;
+        }
         while (y <= maxY) {
             long sum = x * x - ((y * y) << 2);
             if (sum < n) {
-                ++x;
+                x += 2;
                 continue;
             } else if (sum == n) {
                 result.addFirst(Arrays.toString(new long[]{x, y}));
