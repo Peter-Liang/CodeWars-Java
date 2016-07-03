@@ -7,6 +7,9 @@ package com.peter.codewars;
  */
 public class Pizza {
     public static int maxPizza(int cut) {
+        if (cut>10) {
+            return 10;
+        }
         return cut >= 0 ? (cut * cut + cut + 2) / 2 : -1;
     }
 }
