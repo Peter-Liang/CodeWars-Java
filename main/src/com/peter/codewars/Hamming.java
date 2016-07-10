@@ -1,34 +1,46 @@
 package com.peter.codewars;
 
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 /**
  * 4kyu: Hamming Numbers
  * https://www.codewars.com/kata/hamming-numbers/train/java
  */
 public class Hamming {
+    private static final SortedSet<Long> resultSet = new TreeSet<>();
+    private static int nextIndex = 1;
+
+    static {
+        resultSet.add(1l);
+    }
+
     public static long hamming(int n) {
-        int count = 0;
-        for (int i = 1; i < Integer.MAX_VALUE; i++) {
-            int current = i;
-            while (current % 2 == 0) {
-                current /= 2;
-            }
-            while (current % 3 == 0) {
-                current /= 3;
-            }
+        for (int i = nextIndex; i < n; i++) {
+            long current = resultSet.stream()
+                    .skip(i - 1)
+                    .findFirst()
+                    .get();
 
-            while (current % 5 == 0) {
-                current /= 5;
-            }
+            resultSet.add(current * 2);
+            resultSet.add(current * 3);
+            resultSet.add(current * 5);
 
-            if (current == 1) {
-                count++;
-                if (count == n) {
-                    return i;
+            if (resultSet.size() >= n) {
+                long result = resultSet.stream()
+                        .skip(n - 1)
+                        .findFirst()
+                        .get();
+                if (result <= current * 2) {
+                    nextIndex = i + 1;
+                    break;
                 }
             }
-
         }
 
-        return 0;
+        return resultSet.stream()
+                .skip(n - 1)
+                .findFirst()
+                .get();
     }
 }

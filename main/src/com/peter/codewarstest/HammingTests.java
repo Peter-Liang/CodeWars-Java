@@ -27,6 +27,9 @@ public class HammingTests {
         Assert.assertEquals("hamming(17) should be 27", 27, Hamming.hamming(17));
         Assert.assertEquals("hamming(18) should be 30", 30, Hamming.hamming(18));
         Assert.assertEquals("hamming(19) should be 32", 32, Hamming.hamming(19));
+        Assert.assertEquals("hamming(26) should be 60", 60, Hamming.hamming(26));
+        Assert.assertEquals("hamming(934) should be 33554432", 33554432, Hamming.hamming(934));
+        Assert.assertEquals("hamming(1365) should be 430467210", 430467210, Hamming.hamming(1365));
     }
 
 }
