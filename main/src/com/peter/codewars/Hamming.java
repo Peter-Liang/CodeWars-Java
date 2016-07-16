@@ -1,5 +1,6 @@
 package com.peter.codewars;
 
+import java.util.Arrays;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -16,31 +17,15 @@ public class Hamming {
     }
 
     public static long hamming(int n) {
-        for (int i = nextIndex; i < n; i++) {
-            long current = resultSet.stream()
-                    .skip(i - 1)
-                    .findFirst()
-                    .get();
-
-            resultSet.add(current * 2);
-            resultSet.add(current * 3);
-            resultSet.add(current * 5);
-
-            if (resultSet.size() >= n) {
-                long result = resultSet.stream()
-                        .skip(n - 1)
-                        .findFirst()
-                        .get();
-                if (result <= current * 2) {
-                    nextIndex = i + 1;
-                    break;
-                }
-            }
+        if (n <= 0) return -1;
+        TreeSet<Long> ts = new TreeSet<>(Arrays.asList(2L, 3L, 5L));
+        long smallest = 1;
+        for (int i = 1; i < n; i++) {
+            smallest = ts.pollFirst();
+            ts.add(smallest * 2);
+            ts.add(smallest * 3);
+            ts.add(smallest * 5);
         }
-
-        return resultSet.stream()
-                .skip(n - 1)
-                .findFirst()
-                .get();
+        return smallest;
     }
 }
