@@ -1,5 +1,6 @@
 package com.peter.codewarstest;
 
+import com.peter.codewars.Kata;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
