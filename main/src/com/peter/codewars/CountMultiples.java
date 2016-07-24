@@ -16,6 +16,7 @@ public class CountMultiples {
         }
 
         for (long i = 2; primes.size() < n; i++) {
+
             final long finalI = i;
             if (primes.stream().allMatch(p -> finalI % p != 0)) {
                 primes.add(i);
