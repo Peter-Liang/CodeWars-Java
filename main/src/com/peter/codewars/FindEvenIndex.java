@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
  * 6 kyu: Equal Sides Of An Array
  * https://www.codewars.com/kata/5679aa472b8f57fb8c000047/train/java
  */
-public class Kata {
+public class FindEvenIndex {
     public static int findEvenIndex2(int[] arr) {
         List<Integer> list = Arrays.stream(arr).boxed().collect(Collectors.toList());
         for (int i = 1; i < list.size() - 1; i++) {
