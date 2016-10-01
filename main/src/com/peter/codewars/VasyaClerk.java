@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Vasya - Clerk
  * http://www.codewars.com/kata/555615a77ebc7c2c8a0000b8/train/java
  */
-public class Line {
+public class VasyaClerk {
     public static String Tickets(int[] peopleInLine) {
         Map<Integer, AtomicInteger> change = new HashMap<>();
         change.put(25, new AtomicInteger(0));
