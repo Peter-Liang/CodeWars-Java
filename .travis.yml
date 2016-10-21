@@ -4,4 +4,4 @@ git:
   depth: 3
 
 jfk:
-  oraclejdk8
+  - oraclejdk8
