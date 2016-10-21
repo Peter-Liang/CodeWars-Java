@@ -1,4 +1,4 @@
-package com.peter.codewarstest;
+package com.peter.codewars;
 
 import java.util.ArrayList;
 import java.util.Random;

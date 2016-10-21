@@ -1,5 +1,6 @@
 package com.peter.codewarstest;
 
+import com.peter.codewars.BingoCard;
 import org.junit.Test;
 
 import java.util.Arrays;
