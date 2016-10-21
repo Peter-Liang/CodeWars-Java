@@ -3,5 +3,5 @@ language: java
 git: 
   depth: 3
 
-jfk:
+jdk:
   - oraclejdk8
